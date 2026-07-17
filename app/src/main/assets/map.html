@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Route Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        html, body, #map { height: 100%; margin: 0; padding: 0; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map');
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Default view (Tehran) until points are rendered.
+        map.setView([35.7219, 51.3347], 11);
+
+        var markersLayer = L.layerGroup().addTo(map);
+
+        // Called from Android with a JSON string like:
+        // [{"lat":35.71,"lng":51.40,"label":"2026-07-13 14:30:00"}, ...]
+        // Points are expected oldest-first.
+        function renderPoints(pointsJson) {
+            var points = JSON.parse(pointsJson);
+            markersLayer.clearLayers();
+
+            if (!points || points.length === 0) {
+                return;
+            }
+
+            var latLngs = [];
+            points.forEach(function (p, index) {
+                var latLng = [p.lat, p.lng];
+                latLngs.push(latLng);
+
+                var isLatest = index === points.length - 1;
+                var marker = L.circleMarker(latLng, {
+                    radius: isLatest ? 8 : 5,
+                    color: isLatest ? '#D32F2F' : '#1565C0',
+                    fillColor: isLatest ? '#D32F2F' : '#1565C0',
+                    fillOpacity: 0.8
+                }).bindPopup(p.label || '');
+
+                markersLayer.addLayer(marker);
+            });
+
+            if (latLngs.length > 1) {
+                L.polyline(latLngs, { color: '#1565C0', weight: 3, opacity: 0.6 }).addTo(markersLayer);
+            }
+
+            map.fitBounds(L.latLngBounds(latLngs), { padding: [30, 30] });
+        }
+    </script>
+</body>
+</html>

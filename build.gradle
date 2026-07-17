@@ -1,0 +1,11 @@
+buildscript {
+    ext.kotlin_version = "1.9.24"
+    dependencies {
+        // classpath versions are also declared via the plugins block in app/build.gradle
+    }
+}
+
+plugins {
+    id 'com.android.application' version '8.4.2' apply false
+    id 'org.jetbrains.kotlin.android' version '1.9.24' apply false
+}

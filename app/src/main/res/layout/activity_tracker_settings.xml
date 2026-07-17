@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Car Tracker — ارسال موقعیت مکانی از طریق پیامک"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="با پیامک 'sendloc' از یکی از شماره‌های مجاز زیر، موقعیت فوری ارسال می‌شود."
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="با 'autosend on 30' یا 'autosend off' ارسال خودکار پیامکی از راه دور کنترل می‌شود. با 'sendlog' فایل‌های لاگ (فشرده zip) به ایمیل ارسال می‌شوند (نیاز به اینترنت)، با 'dellog' آرشیوهای قدیمی حذف می‌شوند، و با 'ping' وضعیت زنده‌بودن و باتری ردیاب پرسیده می‌شود."
+            android:paddingBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="شماره‌های مجاز برای این دستورات (با کاما جدا کنید):" />
+
+        <EditText
+            android:id="@+id/allowedNumbersInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="مثلا 09121234567, 09123334455" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="شماره(های) ارسال خودکار موقعیت و هشدار حرکت (با کاما جدا کنید):" />
+
+        <EditText
+            android:id="@+id/phoneInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="مثلا 09121234567, 09123334455" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="بازه ارسال خودکار پیامکی (دقیقه، حداقل 15):" />
+
+        <EditText
+            android:id="@+id/intervalInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="مثلا 60" />
+
+        <Switch
+            android:id="@+id/autoSendSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="فعال‌سازی ارسال خودکار پیامکی" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="ذخیره‌ی دوره‌ای مختصات در فایل (مستقل از ارسال خودکار پیامکی)" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="8dp"
+            android:text="این کار همیشه با تایمر خودش انجام می‌شود، چه ارسال خودکار پیامکی روشن باشد چه خاموش." />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="بازه ذخیره در فایل (دقیقه، حداقل 15):" />
+
+        <EditText
+            android:id="@+id/logIntervalInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="مثلا 60" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:text="حداقل فاصله جابجایی برای ثبت در فایل (متر، 0 = غیرفعال یعنی همیشه ثبت شود):" />
+
+        <EditText
+            android:id="@+id/minLogDistanceInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="مثلا 200" />
+
+        <Switch
+            android:id="@+id/movementAlertSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="ارسال پیامک به شماره(های) بالا وقتی این میزان جابجایی رخ دهد" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="هشدار باتری کم" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="8dp"
+            android:text="اگر فعال باشد، با رسیدن باتری گوشیِ ردیاب به آستانه‌ی زیر (یا بازگشت به بالای آن)، یک پیامک هشدار به شماره‌های مجاز فرستاده می‌شود." />
+
+        <Switch
+            android:id="@+id/batteryAlertSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="فعال‌سازی هشدار باتری کم" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="آستانه‌ی هشدار (درصد باتری):" />
+
+        <EditText
+            android:id="@+id/batteryAlertThresholdInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="مثلا 15" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="حصار جغرافیایی (Geofence)" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="8dp"
+            android:text="اگر فعال باشد، وقتی خودرو از محدوده‌ی دایره‌ای زیر خارج یا به آن بازگردد، یک پیامک هشدار به شماره‌های مجاز فرستاده می‌شود." />
+
+        <Switch
+            android:id="@+id/geofenceSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="فعال‌سازی حصار جغرافیایی" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:text="شعاع محدوده (متر):" />
+
+        <EditText
+            android:id="@+id/geofenceRadiusInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="مثلا 500" />
+
+        <TextView
+            android:id="@+id/geofenceCenterText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="#555555" />
+
+        <Button
+            android:id="@+id/setGeofenceCenterButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="ثبت موقعیت فعلی به‌عنوان مرکز محدوده" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="تنظیمات ارسال فایل لاگ به ایمیل (برای دستور sendlog)" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="8dp"
+            android:text="برای ارسال ایمیل، اپ باید با یک حساب ایمیل واسط وارد شود. توصیه می‌شود یک حساب Gmail مخصوص همین کار بسازید و از آن یک «App Password» بگیرید (نه رمز عبور اصلی جیمیل)." />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ایمیل گیرنده (جایی که لاگ باید ارسال شود):" />
+
+        <EditText
+            android:id="@+id/recipientEmailInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="مثلا you@example.com" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="ایمیل فرستنده (حساب واسط برای ارسال):" />
+
+        <EditText
+            android:id="@+id/senderEmailInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="مثلا mycartracker@gmail.com" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="App Password ایمیل فرستنده:" />
+
+        <EditText
+            android:id="@+id/senderEmailPasswordInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="App Password ۱۶ کاراکتری Gmail" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="آدرس سرور SMTP:" />
+
+        <EditText
+            android:id="@+id/smtpHostInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textUri"
+            android:text="smtp.gmail.com" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="پورت SMTP:" />
+
+        <EditText
+            android:id="@+id/smtpPortInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="587" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="ذخیره و درخواست مجوزها" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:textColor="#555555" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/about_credit"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+</ScrollView>

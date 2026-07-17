@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Car Tracker — نمایشگر (Viewer)"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp" />
+
+    <!-- Part 1: raw message history (unchanged) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="پیامک‌های دریافتی از ردیاب" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="4dp"
+        android:background="#F5F5F5">
+
+        <ListView
+            android:id="@+id/historyListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/emptyHistoryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="هنوز پیامکی دریافت نشده."
+            android:textColor="#888888" />
+
+    </FrameLayout>
+
+    <!-- Part 2: action buttons -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/clearHistoryButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="پاک کردن تاریخچه نمایش داده شده" />
+
+            <Button
+                android:id="@+id/sendlocButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="دریافت موقعیت زنده (sendloc)" />
+
+            <Button
+                android:id="@+id/sendlogButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="ارسال فایل لاگ به ایمیل (sendlog)" />
+
+            <Button
+                android:id="@+id/dellogButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="حذف آرشیو لاگ (dellog)" />
+
+            <Button
+                android:id="@+id/pingButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="بررسی وضعیت ردیاب (ping)" />
+
+            <Button
+                android:id="@+id/showMapButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="نمایش مسیر روی نقشه" />
+
+            <Button
+                android:id="@+id/trackerSettingsButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="تنظیمات Tracker" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

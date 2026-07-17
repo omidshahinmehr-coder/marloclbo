@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تنظیمات Tracker"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="هر بخش یک پیامک دستور به گوشیِ ردیاب می‌فرستد."
+            android:textSize="12sp"
+            android:textColor="#888888"
+            android:paddingBottom="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="شماره‌ی گوشیِ ردیاب (Tracker):" />
+
+        <EditText
+            android:id="@+id/trackerPhoneInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="مثلا 09121234567" />
+
+        <Button
+            android:id="@+id/saveTrackerPhoneButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="ذخیره و درخواست مجوزها" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Autosend -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="ارسال خودکار موقعیت (Autosend)" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="بازه ارسال (دقیقه، پیش‌فرض 15):" />
+
+        <EditText
+            android:id="@+id/autosendIntervalInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="15" />
+
+        <Button
+            android:id="@+id/autosendOnButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="فعال‌سازی (Autosend on)" />
+
+        <Button
+            android:id="@+id/autosendOffButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="غیرفعال‌سازی (Autosend off)" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- MoveAlert -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="اعلام میزان جابجایی (MoveAlert)" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="حداقل فاصله جابجایی (متر، پیش‌فرض 50):" />
+
+        <EditText
+            android:id="@+id/moveAlertDistanceInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="50" />
+
+        <Button
+            android:id="@+id/moveAlertOnButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="فعال‌سازی (MoveAlert on)" />
+
+        <Button
+            android:id="@+id/moveAlertOffButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="غیرفعال‌سازی (MoveAlert off)" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Geofence -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="حصار جغرافیایی (Geofence)" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:text="مرکز محدوده، موقعیت فعلی ردیاب در لحظه‌ی فعال‌سازی خواهد بود (اگر قبلاً مرکزی تنظیم نشده باشد)."
+            android:textSize="12sp"
+            android:textColor="#888888" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="شعاع محدوده (متر، پیش‌فرض 500):" />
+
+        <EditText
+            android:id="@+id/geofenceRadiusInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="500" />
+
+        <Button
+            android:id="@+id/geofenceOnButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="فعال‌سازی (Geofence on)" />
+
+        <Button
+            android:id="@+id/geofenceOffButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="غیرفعال‌سازی (Geofence off)" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- LowBatteryAlert -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="هشدار کاهش سطح باتری (LowbatteryAlert)" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="آستانه هشدار (درصد، پیش‌فرض 15):" />
+
+        <EditText
+            android:id="@+id/lowBatteryPercentInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="15" />
+
+        <Button
+            android:id="@+id/lowBatteryOnButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="فعال‌سازی (LowbatteryAlert on)" />
+
+        <Button
+            android:id="@+id/lowBatteryOffButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="غیرفعال‌سازی (LowbatteryAlert off)" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- SetAdminNumbers -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="تنظیم شماره‌های مجاز (SetAdminNumbers)" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:text="شماره‌هایی که اجازه دارند برای ردیاب دستور بفرستند (با کاما جدا کنید):"
+            android:textSize="12sp"
+            android:textColor="#888888" />
+
+        <EditText
+            android:id="@+id/adminNumbersInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="مثلا 09121234567,09123334455" />
+
+        <Button
+            android:id="@+id/setAdminNumbersButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="ارسال (SetAdminNumbers)" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- SetAutosendNumbers -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="تنظیم شماره‌های ارسال خودکار (SetAutosendNumbers)" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:text="شماره‌هایی که موقعیت خودکار و هشدارها برایشان ارسال می‌شود (با کاما جدا کنید):"
+            android:textSize="12sp"
+            android:textColor="#888888" />
+
+        <EditText
+            android:id="@+id/autosendNumbersInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="مثلا 09121234567,09123334455" />
+
+        <Button
+            android:id="@+id/setAutosendNumbersButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="ارسال (SetAutosendNumbers)" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- SetLogTimer -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="تنظیم تایمر ذخیره لاگ (SetLogTimer)" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="بازه ذخیره در فایل (دقیقه، پیش‌فرض 15):" />
+
+        <EditText
+            android:id="@+id/logTimerInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="15" />
+
+        <Button
+            android:id="@+id/setLogTimerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:text="ارسال (SetLogTimer)" />
+
+    </LinearLayout>
+</ScrollView>
